@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>GameStar Register</title>
+	<link rel="newer stylesheet" href="css/style.css" type="text/css" media="all" />
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.1.4.2-min.js"></script>
+	<script src="js/Calculation.js"></script>
+	<script type="text/javascript">
+	    function chkPassword (event){
+	     	var myPassword=event.currentTarget;
+	     	var pos=myPassword.value.search(/^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{8,15}$/);
+	     	var error=document.getElementById("passworderror");
+	     	if (pos !=0) {error.innerHTML="Between 8 and 15 digits, at lest one Capital letter, lower case letter, and numer";
+	     		myPassword.focus();
+	     	    myPassword.select();}
+	     	else {error.innerHTML='';}
+	     }
+        function confirmPassword(event){
+        	var PassWord=document.getElementById("password").value;
+        	var confirmPassword=event.currentTarget;
+        	var error=document.getElementById("confirmpassworderror");
+        	if (PassWord!=confirmPassword.value){error.innerHTML="Please confirm your password correcty";
+        	     confirmPassword.focus();
+        	     confirmPassword.select();
+        	}
+        	else {error.innerHTML='';}
+        }
+
+        function show(x){x.getElementsByTagName("button")[0].style.visibility="visible";x.getElementsByTagName("button")[1].style.visibility="visible";}
+        function noshow(x){x.getElementsByTagName("button")[0].style.visibility="hidden";x.getElementsByTagName("button")[1].style.visibility="hidden";}
+
+      
+	</script>
+
+</head>
+<body>
+    <div class="wrapper">
+		<!-- header -->
+		<header class="header">
+			<div class="shell">
+				<div class="header-top">
+					<h1 id="logo" class="leftbar"><a href="index.html">GameStar</a></h1>
+					<nav id="navigation" class="leftbar">	
+						<ul>
+							<li class="active home"><a href="index.html">Home</a></li>
+							<li><a href="category1.html">Category1</a></li>
+							<li><a href="category2.html">Category2</a></li>
+							<li><a href="category3.html">Category3</a></li>
+							<li><a href="Login.html">Login/Register</a></li>							
+						</ul>
+
+					</nav>
+					<div class="wrap rounded">
+                                            <input type="text" id="searchbar" class="leftbar rounded searchfont" value="Search for Games" onfocus="this.value='';"/>
+                                            <button class="gobar leftbar rounded"><div></div></button>
+                    </div>
+				</div>
+			</div>
+		</header>
+
+    </div>
+    <br>
+
+    
+        <div class="myaccount">
+        	<table class="myaccountTable">
+        		<tr><td><label for="lastname">Last Name:</label></td>
+    		       <td><input type="text"  name="lastname" readonly="readonly" id="lastname"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button  id="lastnameSave">save</button><button id="lastnameEdit">edit</button></td>
+        		</tr>
+        		<tr><td><label for="firstname">First Name:</label></td>
+    		       <td><input type="text"  name="firstname" id="firstname" readonly="readonly"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="firstnameSave">save</button><button id="firstnameEdit">edit</button></td>
+        		</tr>
+        		<tr><td><label for="gender">Gender:</label></td>
+    		       <td><input type="text"  name="gender" id="gender" readonly="readonly"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="genderSave">save</button><button id="genderEdit">edit</button></td>
+        		</tr>
+        		<tr><td><label for="birthday" >Birthday:</label></td>
+                   <td><input type="date" name="birthday" id="birthday" readonly="readonly"></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="birthdaySave">save</button><button id="birthdayEdit">edit</button></td>
+        		</tr>
+        		<tr><td><label for="username">UserEmail:</label></td>
+        			<td><input type="email" name="username" id="username" readonly="readonly"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="usernameSave">save</button><button id="usernameEdit">edit</button></td>
+        		</tr>
+        		<tr><td><label for="userpassword">Password:</label></td>
+        			<td><input type="text" id="password" name="userpassword"  readonly="readonly"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="passwordSave">save</button><button id="passwordEdit">edit</button></td>
+        		</tr>
+        		<tr><td>  <label for="address">Address:</label></td>
+        			<td><input type="text"  name="address" id="address" readonly="readonly"/></td>
+        			<td onmouseover="show(this);" onmouseout="noshow(this);"><button id="addressSave">save</button><button id="addressEdit">edit</button></td>
+        		</tr>
+
+        	</table>
+                        
+    		       <script>
+    		          document.getElementById("lastnameEdit").onclick=function(){document.getElementById("lastname").readOnly=false;}
+    		          document.getElementById("lastnameSave").onclick=function(){document.getElementById("lastname").readOnly=true;}
+    		          document.getElementById("firstnameEdit").onclick=function(){document.getElementById("firstname").readOnly=false;}
+    		          document.getElementById("firstnameSave").onclick=function(){document.getElementById("firstname").readOnly=true;}
+    		          document.getElementById("genderEdit").onclick=function(){document.getElementById("gender").readOnly=false;}
+    		          document.getElementById("genderSave").onclick=function(){document.getElementById("gender").readOnly=true;}
+    		          document.getElementById("birthdayEdit").onclick=function(){document.getElementById("birthday").readOnly=false;}
+    		          document.getElementById("birthdaySave").onclick=function(){document.getElementById("birthday").readOnly=true;}
+    		          document.getElementById("usernameEdit").onclick=function(){document.getElementById("username").readOnly=false;}
+    		          document.getElementById("usernameSave").onclick=function(){document.getElementById("username").readOnly=true;}
+    		          document.getElementById("passwordEdit").onclick=function(){document.getElementById("password").readOnly=false;}
+    		          document.getElementById("passwordSave").onclick=function(){document.getElementById("password").readOnly=true;}
+    		          document.getElementById("addressEdit").onclick=function(){document.getElementById("address").readOnly=false;}
+    		          document.getElementById("addressSave").onclick=function(){document.getElementById("address").readOnly=true;}
+    		          
+    		       </script>
+    		    
+        </div>
+    <br>
+    </div>
+
+
+    <div class="gwc" style=" margin:auto;">
+	<table cellpadding="0" cellspacing="0" class="gwc_tb1">
+		<tr>
+			<td class="tb1_td1"><input id="Checkbox1" type="checkbox"  class="allselect"/></td>
+			<td class="tb1_td1">Select All</td>
+			<td class="tb1_td3">Item</td>
+			<td class="tb1_td4">Item Info</td>
+			<td class="tb1_td5">Quantity</td>
+			<td class="tb1_td8">Unit Price</td>
+			<td class="tb1_td6">Amount</td>
+			<td class="tb1_td7">Operation</td>
+		</tr>
+	</table>
+		   
+	<!---商品加减算总数---->
+	<script type="text/javascript">
+	$(function () {
+		var t = $("#text_box1");
+		$("#add1").click(function () {
+			t.val(parseInt(t.val()) + 1)
+			setTotal(); GetCount();
+		})
+		$("#min1").click(function () {
+			t.val(parseInt(t.val()) - 1)
+			setTotal(); GetCount();
+		})
+		function setTotal() {
+            var unit1price=document.getElementById("item1unitprice").value;
+            //const unit1pricenum=9;
+            //alert(unit1price);
+			//$("#total1").html((parseInt(t.val()) * unit1pricenum).toFixed(2));
+			//$("#newslist-1").val(parseInt(t.val()) * unit1pricenum);
+			$("#total1").html((parseInt(t.val()) * 9).toFixed(2));
+			$("#newslist-1").val(parseInt(t.val()) * 9);
+		}
+		setTotal();
+	})
+	</script>
+	
+	<table cellpadding="0" cellspacing="0" class="gwc_tb2">
+		<tr>
+			<td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-1" /></td>
+			<td class="tb2_td2"><a href="#"><img src="images/ShoppingCart/img1.jpg"/></a></td>
+			<td class="tb2_td3"><a href="#">Item Title</a></td>
+			<td class="tb1_td4">One</td>
+			<td class="tb1_td5">
+				<input id="min1" name=""  style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="-" />
+				<input id="text_box1" name="" type="text" value="1" style=" width:30px; text-align:center; border:1px solid #ccc;" />
+				<input id="add1" name="" style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="+" />
+			</td>
+			<td class="tb1_td8"><span id="item1unitprice">9</span></td>
+			<td class="tb1_td6"><label id="total1" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
+			<td class="tb1_td7"><a href="#">Delete</a></td>
+		</tr>
+	</table>
+	
+	<!---商品加减算总数---->
+	<script type="text/javascript">
+	$(function () {
+		var t = $("#text_box2");
+		$("#add2").click(function () {
+			t.val(parseInt(t.val()) + 1)
+			setTotal(); GetCount();
+		})
+		$("#min2").click(function () {
+			t.val(parseInt(t.val()) - 1)
+			setTotal(); GetCount();
+		})
+		function setTotal() {
+
+			$("#total2").html((parseInt(t.val()) * 8).toFixed(2));
+			$("#newslist-2").val(parseInt(t.val()) * 8);
+		}
+		setTotal();
+	})
+	</script>
+	<table cellpadding="0" cellspacing="0" class="gwc_tb2">
+		<tr>
+			<td class="tb2_td1"><input type="checkbox" value="1" name="newslist" id="newslist-2" /></td>
+			<td class="tb2_td2"><a href="#"><img src="images/ShoppingCart/img2.jpg"/></a></td>
+			<td class="tb2_td3"><a href="#">Item Title</a></td>
+			<td class="tb1_td4">One</td>
+			<td class="tb1_td5">
+				<input id="min2" name=""  style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="-" />
+				<input id="text_box2" name="" type="text" value="1" style=" width:30px; text-align:center; border:1px solid #ccc;" />
+				<input id="add2" name="" style=" width:20px; height:18px;border:1px solid #ccc;" type="button" value="+" />
+			</td>
+			<td class="tb1_td8"><label id="item2unitprice" value=8>8</label></td>
+			<td class="tb1_td6"><label id="total2" class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></td>
+			<td class="tb1_td7"><a href="#">Delete</a></td>
+		</tr>
+	</table>
+	
+	<!---总数---->
+	<script type="text/javascript">
+	$(function () {
+		$(".quanxun").click(function () {
+			setTotal();
+			//alert($(lens[0]).text());
+		});
+		function setTotal() {
+			var len = $(".tot");
+			var num = 0;
+			for (var i = 0; i < len.length; i++) {
+				num = parseInt(num) + parseInt($(len[i]).text());
+
+			}
+			//alert(len.length);
+			$("#zong1").text(parseInt(num).toFixed(2));
+			$("#shuliang").text(len.length);
+		}
+		//setTotal();
+	})
+	</script>
+	<table cellpadding="0" cellspacing="0" class="gwc_tb3">
+		<tr>
+			<td class="tb1_td1"><input id="checkAll" class="allselect" type="checkbox" /></td>
+			<td class="tb1_td1">SelectAll</td>
+			<td class="tb3_td1">
+				<input id="invert" type="checkbox" />Invert
+				<input id="cancel" type="checkbox" />Cancel
+			</td>
+			<td class="tb3_td2">Selected Items <label id="shuliang" style="color:#ff5500;font-size:14px; font-weight:bold;">0</label> Items</td>
+			<td class="tb3_td3">Total Amount:<span>$</span><span style=" color:#ff5500;"><label id="zong1" style="color:#ff5500;font-size:14px; font-weight:bold;"></label></span></td>
+			<td class="tb3_td4"><span id="jz1">Check</span><a href="#" style=" display:none;"  class="jz2" id="jz2">Check Out</a></td>
+		</tr>
+	</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="middle">
+    </div>
+
+
+    <div id="footer">
+			<!-- shell -->
+			<div class="shell">
+				<!-- footer-cols -->
+				<div class="footer-cols">
+					<div class="col">
+						<h2>SERVICES</h2>
+						<ul>
+							<li><a href="#"><span>Delivery</span></a></li>
+							<li><a href="#"><span>Worontory</span></a></li>
+							<li><a href="#"><span>International Services </span></a></li>
+						</ul>
+					</div>
+
+					<div class="col">
+						<h2>PARTNERS</h2>
+						<ul>
+							<li><a href="#"><span>Alibaba</span></a></li>
+							<li><a href="#"><span>Paypal</span></a></li>
+							<li><a href="#"><span>AMAZON </span></a></li>
+						</ul>
+					</div>
+
+					<div class="col">
+						<h2>SOCIAL</h2>
+						<ul>
+							<li><a href="#"><span>Blog</span></a></li>
+							<li><a href="#"><span>Facebook</span></a></li>
+							<li><a href="#"><span>Youtube </span></a></li>
+						</ul>
+					</div>
+
+					<div class="col">
+						<h2>CONTACT us</h2>
+
+						<p>Email: <a href="#">info@gamestar.com</a></p>
+						<p>Phone: 84649347</p>
+						<p>Address: NTU EEE </p>
+					</div>
+					
+				</div>
+				<!-- end of footer-cols -->
+				<div class="footer-bottom">
+					
+					<p class="copy">Copyright &copy; 2015<span>|</span>Design by: <a href="http://chocotemplates.com" target="_blank">www.GameStar.com</a></p>
+					
+				</div>
+			</div>
+			<!-- end of shell -->
+</div>
+		<!-- footer -->
+</body>
+
+
+</html>
